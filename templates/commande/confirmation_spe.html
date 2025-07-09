@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Confirmation de commande{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-success">Merci pour votre commande spéciale !</h2>
+    <img src="{% load static %}{% static 'images/three-dancing-fish-doodle.gif' %}" alt="Poissons dançant" >
+    <p>Nous vous contacterons sous peu pour la livraison.</p>
+    <a href="{% url 'services' %}" class="btn btn-primary mt-3">Retour aux kits</a>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Tutoriels - AquaTerre{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="text-3xl font-bold mb-4 text-green-700">📚 Tutoriels AquaTerre</h1>
+    <p class="mb-6">Retrouvez ici toutes les vidéos d’aide et explications sur l’utilisation de nos kits aquaponiques, la navigation du site, et bien plus !</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Exemple de lien vidéo -->
+        <div class="bg-white rounded-xl shadow p-4 border">
+            <h2 class="text-xl font-semibold mb-2">🔧 Montage du kit aquaponique</h2>
+            <p class="mb-2">Apprenez à assembler votre kit pas à pas avec cette vidéo explicative.</p>
+            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/gjcxL3mVVe0" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="bg-white rounded-xl shadow p-4 border">
+            <h2 class="text-xl font-semibold mb-2">🌿 Introduction à l’aquaponie</h2>
+            <p class="mb-2">Comprenez le fonctionnement et les principes de base de l’aquaponie.</p>
+            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/5ULfWYI1Tfc" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Ajoute ici d'autres blocs similaires -->
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,226 @@
+[
+  {
+    "model": "boutique.categorie",
+    "pk": 1,
+    "fields": {
+      "nom": "Cuves et bacs",
+      "slug": "cuves",
+      "description": "Cuves et bacs pour systèmes aquaponiques"
+    }
+  },
+  {
+    "model": "boutique.categorie",
+    "pk": 2,
+    "fields": {
+      "nom": "Pompes",
+      "slug": "pompes",
+      "description": "Pompes à eau et à air"
+    }
+  },
+  {
+    "model": "boutique.categorie",
+    "pk": 3,
+    "fields": {
+      "nom": "Équipements",
+      "slug": "equipements",
+      "description": "Équipements divers pour aquaponie"
+    }
+  },
+  {
+    "model": "boutique.categorie",
+    "pk": 4,
+    "fields": {
+      "nom": "Monitoring",
+      "slug": "monitoring",
+      "description": "Outils de surveillance et test"
+    }
+  },
+  {
+    "model": "boutique.categorie",
+    "pk": 5,
+    "fields": {
+      "nom": "Média de culture",
+      "slug": "media",
+      "description": "Substrats et média de culture"
+    }
+  },
+  {
+    "model": "boutique.categorie",
+    "pk": 6,
+    "fields": {
+      "nom": "Accessoires",
+      "slug": "accessoires",
+      "description": "Accessoires et petits équipements"
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 1,
+    "fields": {
+      "nom": "Cuve bac à poisson",
+      "slug": "cuve-bac-poisson",
+      "description": "Cuve spécialisée pour l'élevage de poissons en aquaponie",
+      "prix": 200000,
+      "quantite_stock": 10,
+      "categorie": 1,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 2,
+    "fields": {
+      "nom": "Bac de culture",
+      "slug": "bac-culture",
+      "description": "Bac optimisé pour la culture des légumes",
+      "prix": 40000,
+      "quantite_stock": 15,
+      "categorie": 1,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 3,
+    "fields": {
+      "nom": "Média de culture (argile)",
+      "slug": "media-culture-argile",
+      "description": "Billes d'argile expansée pour la culture hydroponique",
+      "prix": 75000,
+      "quantite_stock": 20,
+      "categorie": 5,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 4,
+    "fields": {
+      "nom": "Pompe à eau",
+      "slug": "pompe-eau",
+      "description": "Pompe haute performance pour circulation d'eau",
+      "prix": 40000,
+      "quantite_stock": 25,
+      "categorie": 2,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 5,
+    "fields": {
+      "nom": "Pompe à air + diffuseur",
+      "slug": "pompe-air-diffuseur",
+      "description": "Système d'aération pour l'oxygénation de l'eau",
+      "prix": 35000,
+      "quantite_stock": 30,
+      "categorie": 2,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 6,
+    "fields": {
+      "nom": "Testeur d'eau",
+      "slug": "testeur-eau",
+      "description": "Kit de test pH, ammoniaque, nitrites, nitrates",
+      "prix": 25000,
+      "quantite_stock": 40,
+      "categorie": 4,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 7,
+    "fields": {
+      "nom": "Chauffage",
+      "slug": "chauffage",
+      "description": "Chauffage thermostaté pour aquarium",
+      "prix": 40000,
+      "quantite_stock": 20,
+      "categorie": 3,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 8,
+    "fields": {
+      "nom": "Éclairage",
+      "slug": "eclairage",
+      "description": "Éclairage LED full spectrum pour croissance",
+      "prix": 80000,
+      "quantite_stock": 15,
+      "categorie": 3,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 9,
+    "fields": {
+      "nom": "Tuyaux, raccords, minuteur, flotteurs",
+      "slug": "tuyaux-raccords-minuteur-flotteurs",
+      "description": "Kit complet de plomberie et accessoires",
+      "prix": 70000,
+      "quantite_stock": 25,
+      "categorie": 6,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 10,
+    "fields": {
+      "nom": "IBC",
+      "slug": "ibc",
+      "description": "Container IBC 1000L pour système aquaponique",
+      "prix": 80000,
+      "quantite_stock": 8,
+      "categorie": 1,
+      "actif": true
+    }
+  },
+  {
+    "model": "boutique.produit",
+    "pk": 11,
+    "fields": {
+      "nom": "Épuisette",
+      "slug": "epuisette",
+      "description": "Épuisette fine pour manipulation des poissons",
+      "prix": 10000,
+      "quantite_stock": 50,
+      "categorie": 6,
+      "actif": true
+    }
+  },
+  {
+    "model": "chatbot.reponsebot",
+    "pk": 1,
+    "fields": {
+      "mot_cle": "prix",
+      "reponse": "Nos systèmes aquaponiques varient selon la taille :\n• Package Starter : 500 000 FCFA\n• Package Familial : 1 200 000 FCFA\n• Package Professionnel : 2 500 000 FCFA\n\nTous incluent installation, formation et garantie !",
+      "actif": true
+    }
+  },
+  {
+    "model": "chatbot.reponsebot",
+    "pk": 2,
+    "fields": {
+      "mot_cle": "fonctionnement",
+      "reponse": "L'aquaponie combine l'élevage de poissons et la culture de légumes :\n• Les poissons produisent des déchets riches en nutriments\n• Les bactéries transforment ces déchets en engrais naturel\n• Les plantes absorbent les nutriments et purifient l'eau\n• L'eau propre retourne aux poissons\n\nC'est un cycle naturel parfait !",
+      "actif": true
+    }
+  },
+  {
+    "model": "chatbot.reponsebot",
+    "pk": 3,
+    "fields": {
+      "mot_cle": "installation",
+      "reponse": "Nos services d'installation incluent :\n• Évaluation de votre site\n• Design personnalisé\n• Installation complète\n• Tests de fonctionnement\n• Formation pratique\n• Garantie et support\n\nNos techniciens se déplacent partout à Bamako !",
+      "actif": true
+    }
+  }
+]

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AquaTerre - Entreprise d'Aquaponie au Mali{% endblock %}</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% load static %}{% static 'css/style.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="margin-top: -70px;    background: var(--gradient-primary);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{% url 'home' %}">
+                <img src="{% load static %}{% static 'images/Aquaterre-logo.jpg' %}" alt="AquaTerre Logo" class="d-inline-block align-text-top" style="height: 100px; width: 200px; margin-left: -100px; margin-bottom: 0px ;">
+            </a>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'tutoriel' %}"><button class="btn-btn-primary">Tutoriels</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'services' %}"><button class="btn-btn-primary">Services</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}"><button class="btn-btn-primary">Contact</button></a>
+                    </li>
+                                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'comptes:mon_compte' %}">
+                            <button class="btn btn-outline-info" style="padding: 10px 16px; 
+    margin-left: 100px;
+    vertical-align: top;
+    transition: 0.3s ease;">compte</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'comptes:logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger" style="padding: 10px 16px; 
+    margin-left: 50px;
+    margin-top: 7px;
+    
+    vertical-align: top;
+    transition: 0.3s ease;">Déconnexion</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'comptes:login' %}">
+                            <button class="btn btn-outline-primary">Connexion</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'comptes:register' %}">
+                            <button class="btn btn-outline-success">Créer un compte</button>
+                        </a>
+                    </li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
+
+    <!-- Messages -->
+    {% if messages %}
+        <div class="container mt-5 pt-4">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-gradient mb-3">
+                        <i class="fas fa-tint me-2"></i>AquaTerre
+                    </h5>
+                    <p class="text-white">
+                        Pionnier de l'aquaponie au Mali, nous transformons l'agriculture urbaine 
+                        avec des solutions durables et innovantes.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-primary mb-3">Liens rapides</h6>
+                    <ul class="links" style="text-align: left;">
+                        <li><a href="{% url 'home' %}" class="text-white">Accueil</a></li>
+                        <li><a href="{% url 'services' %}" class="text-white">Services</a></li>
+                        <li><a href="{% url 'contact' %}" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="text-primary mb-3">Nos services</h6>
+                    <ul class="text-white" style="text-align: left; ;">
+                        <li>Installation sur mesure</li>
+                        <li>Formation complète</li>
+                        <li>Maintenance & SAV</li>
+                        <li>Support technique</li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 mb-4">
+                    <h6 class="text-primary mb-3">Contact</h6>
+                    <div class="text-white mb-3">
+                        <p><i class="fas fa-phone me-2"></i>+223 73 43 03 20</p>
+                        <p><i class="fas fa-envelope me-2"></i>contact@aquaterre.ml</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                     <h6 class="text-primary mb-3">Localisation</h6>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31158.684700500846!2d-8.068581675779928!3d12.527048639900201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe51cf4150eb0ab9%3A0xa733302516058d0e!2sKabala%2C%20Bamako!5e0!3m2!1sfr!2sml!4v1751730248959!5m2!1sfr!2sml" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                   
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white mb-0">© 2024 AquaTerre. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-white">
+                        Contribuer à une transition écologique et alimentaire au Mali
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{% load static %}{% static 'js/main.js' %}"></script>
+    <script src="{% load static %}{% static 'js/chatbot.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+    <a href="{% url 'chatbot:index' %}" class="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-700 text-sm font-semibold z-50">
+  💬 Chat AquaTerre
+</a>
+</body>
+</html>

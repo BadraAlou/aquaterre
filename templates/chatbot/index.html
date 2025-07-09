@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Chatbot AquaTerre{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-success text-center mb-4">💬 Chatbot AquaTerre</h2>
+
+    <div class="card shadow p-4 mx-auto" style="max-width: 600px;">
+        <p><strong>Bot :</strong> {{ bot_intro }}</p>
+
+        <form method="post" class="mb-3">
+            {% csrf_token %}
+            {% for question in questions %}
+                <button type="submit" name="message" value="{{ question }}" class="btn btn-outline-success btn-sm m-1">{{ question }}</button>
+            {% endfor %}
+        </form>
+
+        {% if user_message %}
+            <div class="mb-2"><strong>Vous :</strong> {{ user_message }}</div>
+            <div class="mb-2"><strong>Bot :</strong> {{ bot_response }}</div>
+        {% endif %}
+
+        <div class="mt-3">
+            <p>Vous avez une autre question ?</p>
+            <a href="{% url 'contact' %}" class="btn btn-outline-primary">Contacter AquaTerre</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

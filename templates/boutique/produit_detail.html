@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ produit.nom }}</h1>
+<p>{{ produit.description }}</p>
+<p>{{ produit.prix }} FCFA</p>
+<form method="post" action="{% url 'boutique:ajouter_au_panier' %}" id="add-to-cart">
+  {% csrf_token %}
+  <input type="hidden" name="produit_id" value="{{ produit.id }}">
+  <label>Quantité : <input type="number" name="quantite" value="1" min="1"></label>
+  <button type="submit">Ajouter au panier</button>
+</form>
+{% endblock %}

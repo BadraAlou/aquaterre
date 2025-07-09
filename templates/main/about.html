@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}À propos - AquaTerre{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold text-success">À propos de <span class="text-primary">AquaTerre</span></h1>
+      <hr class="w-25 mx-auto border-success">
+      <p class="lead text-muted">L'innovation verte au service de l'agriculture durable</p>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4">
+        <img src="{% static 'images/hydroponie-1050x525.png' %}" alt="Système Aquaponique AquaTerre" class="img-fluid rounded shadow-sm">
+      </div>
+      <div class="col-md-6">
+        <p><strong>AquaTerre</strong> est une entreprise engagée dans la promotion de l’<em>aquaponie</em>, une solution durable et innovante pour une production alimentaire respectueuse de l’environnement.</p>
+
+        <p>Fondée par des passionnés d’agriculture écologique et de technologies vertes, notre mission est claire : <span class="fw-bold text-success">rendre l’aquaponie accessible à tous</span>, que ce soit pour un usage domestique, éducatif ou professionnel.</p>
+
+        <p>Nous concevons des systèmes aquaponiques sur mesure, combinant <span class="fw-bold text-primary">innovation</span>, <span class="fw-bold text-primary">efficacité</span> et <span class="fw-bold text-primary">durabilité</span>, adaptés aux besoins de chacun.</p>
+
+        <p>Grâce à notre expertise technique, nos formations accessibles, et notre accompagnement de proximité, <strong>AquaTerre</strong> est aujourd’hui un acteur majeur en Afrique de l’Ouest dans l’agriculture circulaire.</p>
+
+        <a href="{% url 'services' %}" class="btn btn-success mt-3 px-4 py-2">Découvrir nos services</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

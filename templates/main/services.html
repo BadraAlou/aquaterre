@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Nos Services - AquaTerre{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-3xl font-bold text-success text-center mb-5">Nos Services</h1>
+
+    <div class="row mb-5">
+        <div class="col-md-4 mb-4">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+                <h4 class="text-success mb-2">Installation de systèmes aquaponiques</h4>
+                <p>
+                    Nous concevons et installons des systèmes aquaponiques personnalisés pour particuliers, écoles, entreprises et exploitations agricoles.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+                <h4 class="text-success mb-2">Maintenance & Suivi technique</h4>
+                <p>
+                    Notre équipe assure un suivi technique complet, avec visites régulières et assistance à distance pour garantir le bon fonctionnement de vos installations.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="p-4 bg-white rounded shadow-sm h-100">
+                <h4 class="text-success mb-2">Formation et ateliers</h4>
+                <p>
+                    AquaTerre propose des formations pratiques à l’aquaponie pour les débutants et les professionnels souhaitant approfondir leurs connaissances.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-2xl text-center text-success mb-4">Nos Kits disponibles</h2>
+
+    <div class="row">
+        {% for kit in kits %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-primary">{{ kit.nom }}</h5>
+                    <p class="card-text">{{ kit.description|truncatewords:20 }}</p>
+                    <p class="mb-1"><strong>Prix :</strong> {{ kit.prix }} FCFA</p>
+                    <p class="mb-3"><strong>Stock :</strong> {{ kit.stock }}</p>
+
+                    <div class="mt-auto">
+                        <a href="{% url 'kit_detail' kit.id %}" class="btn btn-outline-primary btn-sm mb-2">Détails</a>
+
+                        <form method="get" action="{% url 'commande:nouvelle_commande' %}">
+                            <input type="hidden" name="kit_id" value="{{ kit.id }}">
+                            <button type="submit" class="btn btn-success btn-sm w-100">Commander ce kit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p>Aucun kit disponible pour le moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Stripe Checkout Script -->
+<script>
+    const stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
+
+    function payKit(buttonElement) {
+        const kitId = buttonElement.getAttribute("data-kit-id");
+        if (!kitId) {
+            alert("ID du kit non trouvé.");
+            return;
+        }
+
+        fetch("{% url 'create_checkout_session' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: JSON.stringify({ kit_id: kitId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.id) {
+                stripe.redirectToCheckout({ sessionId: data.id });
+            } else {
+                alert("Erreur de paiement.");
+            }
+        })
+        .catch(error => {
+            console.error("Erreur :", error);
+            alert("Erreur réseau.");
+        });
+    }
+</script>
+{% endblock %}

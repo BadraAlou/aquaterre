@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - AquaTerre{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-success text-center mb-4">📞 Contactez-nous</h1>
+    <p class="text-center mb-5">
+        Une question sur nos kits aquaponiques, un besoin spécifique ou un projet en tête ? <br>
+        Écrivez-nous via ce formulaire, nous vous répondrons rapidement.
+    </p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="nom" class="form-label">Nom complet</label>
+                    <input type="text" class="form-control" id="nom" name="nom" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Adresse e-mail</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="sujet" class="form-label">Sujet</label>
+                    <input type="text" class="form-control" id="sujet" name="sujet" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

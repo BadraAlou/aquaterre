@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ kit.nom }} - Détail du Kit{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2>{{ kit.nom }}</h2>
+    <p>{{ kit.description }}</p>
+    <p><strong>Prix :</strong> {{ kit.prix }} FCFA</p>
+    <p><strong>Stock :</strong> {{ kit.stock }}</p>
+    {% if kit.stock > 0 %}
+        <button class="btn btn-success">Commander ce kit</button>
+    {% else %}
+        <span class="badge bg-danger">Indisponible</span>
+    {% endif %}
+    <a href="{% url 'services' %}" class="btn btn-secondary mt-3">← Retour aux kits</a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Nouvelle commande{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4">Commander le kit : {{ kit.nom }}</h2>
+    <p><strong>Prix :</strong> {{ kit.prix }} FCFA</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Valider la commande</button>
+    </form>
+</div>
+{% endblock %}

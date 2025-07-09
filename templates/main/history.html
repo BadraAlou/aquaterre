@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Notre Histoire - AquaTerre{% endblock %}
+
+{% block content %}
+<div class="container mx-auto py-12 px-6">
+    <h1 class="text-history">Notre Histoire</h1>
+
+    <div class="max-w-4xl mx-auto text-gray-800 leading-relaxed space-y-6">
+        <p>
+            L’aventure AquaTerre commence en <strong>2021</strong>, avec une vision claire : 
+            proposer des solutions agricoles durables et accessibles basées sur l’aquaponie.
+            À l’origine, une équipe de jeunes ingénieurs et passionnés de nature, convaincus qu’il est possible de produire mieux, en respectant la planète.
+        </p>
+
+        <p>
+            Dès ses débuts, AquaTerre a misé sur l’innovation locale. Nous avons conçu nos premiers systèmes dans un petit atelier,
+            testant des prototypes dans des conditions réelles au Mali. Très vite, l’intérêt a grandi, des écoles aux agriculteurs,
+            en passant par des familles cherchant l’autonomie alimentaire.
+        </p>
+
+        <p>
+            Aujourd’hui, nous avons équipé plus de <strong>150 clients</strong> à travers l’Afrique de l’Ouest, 
+            formé des dizaines de jeunes à l’aquaponie et développé une gamme complète de produits conçus pour le climat et les réalités locales.
+        </p>
+
+        <p>
+            Notre engagement ne s’arrête pas là : nous continuons d’innover, de former et de sensibiliser pour bâtir un avenir plus vert et plus autonome.
+        </p>
+
+        <div class="text-center pt-8">
+            <a href="{% url 'about' %}" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded transition">
+                En savoir plus sur nous
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

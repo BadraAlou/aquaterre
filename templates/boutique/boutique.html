@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Boutique - AquaTerre{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="mb-4 text-center text-primary">Notre Boutique</h2>
+        <div class="row">
+            {% for produit in produits %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{% static 'images/produits/default.jpg' %}" class="card-img-top" alt="{{ produit.nom }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ produit.nom }}</h5>
+                            <p class="card-text text-muted">{{ produit.description|truncatewords:20 }}</p>
+                            <p class="text-success fw-bold">{{ produit.prix }} FCFA</p>
+                            <a href="#" class="btn btn-outline-primary">Ajouter au panier</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center">Aucun produit disponible pour le moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

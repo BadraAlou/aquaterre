@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Mon compte - AquaTerre{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4">Bienvenue {{ user.first_name }} {{ user.last_name }}</h2>
+
+    <div class="card mb-5">
+        <div class="card-header bg-success text-white">
+            <i class="fas fa-user me-2"></i> Mes informations
+        </div>
+        <div class="card-body">
+            <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+            <p><strong>Email :</strong> {{ user.email }}</p>
+            <p><strong>Téléphone :</strong> {{ user.telephone }}</p>
+            <p><strong>Date d'inscription :</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <i class="fas fa-box me-2"></i> Mes commandes
+        </div>
+        <div class="card-body">
+            {% if commandes %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Statut</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for commande in commandes %}
+                            {% with kit=commande.kit %}
+                                <tr>
+                                    <td>{{ commande.id }}</td>
+                                    <td>{{ commande.date_commande|date:"d/m/Y H:i" }}</td>
+                                    <td>{{ commande.statut }}</td>
+                                    <td>{{ kit.prix }} FCFA</td>
+                                </tr>
+                            {% endwith %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-muted">Vous n’avez passé aucune commande pour le moment.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

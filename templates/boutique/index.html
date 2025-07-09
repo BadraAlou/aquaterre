@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-6">Boutique Aquaponique</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for produit in produits %}
+        <div class="border p-4 rounded shadow">
+            <h2 class="text-xl font-semibold">{{ produit.nom }}</h2>
+            <p class="text-gray-600">{{ produit.description }}</p>
+            <p class="text-green-600 font-bold mt-2">{{ produit.prix }} FCFA</p>
+            <form action="{% url 'boutique:ajouter_au_panier' produit.id %}" method="post">
+                {% csrf_token %}
+                <button class="bg-blue-500 text-white px-4 py-2 mt-4 rounded">Ajouter au panier</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

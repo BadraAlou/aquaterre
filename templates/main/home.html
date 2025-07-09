@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}AquaTerre - Accueil{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center min-vh-100 position-relative overflow-hidden">
+    <div class="hero-bg"></div>
+    <div class="container position-relative z-3">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-icons mb-4">
+                    <div class="hero-icon bg-gradient-primary">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="hero-icon bg-gradient-success">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="hero-icon bg-gradient-info">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                </div>
+                
+                <h1 class="display-3 fw-bold mb-4">
+                    <span class="text-gradient">AquaTerre</span>
+                </h1>
+                
+                <p class="lead mb-4">
+                    Révolutionnez votre agriculture avec l'aquaponie - 
+                    <span class="text-primary fw-semibold">la solution durable</span> 
+                    pour une production alimentaire innovante au Mali
+                </p>
+                
+                <div class="d-flex flex-column flex-sm-row gap-3">
+                    <a href="{% url 'services' %}" class="btn btn-gradient-primary btn-lg">
+                        Découvrir nos solutions
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="{% load static %}{% static 'images/3defe31c-9be5-4880-8aa6-f1c33062636d.png' %}" 
+                         alt="Système aquaponique" class="img-fluid rounded-3 shadow-lg " style="width: 100%;">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features Cards -->
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card bg-white rounded-3 p-4 shadow-sm h-100">
+                    <div class="feature-icon bg-gradient-primary mb-3">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h5 class="fw-bold">Économie d'eau</h5>
+                    <p class="text-muted mb-0">95% d'économie d'eau par rapport à l'agriculture traditionnelle</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="feature-card bg-white rounded-3 p-4 shadow-sm h-100">
+                    <div class="feature-icon bg-gradient-success mb-3">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h5 class="fw-bold">Production continue</h5>
+                    <p class="text-muted mb-0">Récoltes toute l'année, même en saison sèche</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="feature-card bg-white rounded-3 p-4 shadow-sm h-100">
+                    <div class="feature-icon bg-gradient-info mb-3">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h5 class="fw-bold">Double production</h5>
+                    <p class="text-muted mb-0">Poissons et légumes dans un même système</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+</section>
+
+<!-- About Preview -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="{% load static %}{% static 'images/4bbbc28f-e541-487d-9204-c7b9db034fe6.png' %}" 
+                     alt="Équipe AquaTerre" class="img-fluid rounded-3 shadow">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-4">
+                    <span class="text-gradient">À propos d'AquaTerre</span>
+                </h2>
+                <p class="lead mb-4">
+                    Pionnier de l'aquaponie au Mali, nous transformons l'agriculture urbaine 
+                    avec des solutions durables et innovantes.
+                </p>
+                <p class="mb-4">
+                    Notre mission est de concevoir, installer et assurer le suivi de systèmes 
+                    aquaponiques sur mesure, pour une clientèle variée : particuliers et ONG.
+                </p>
+                <a href="{% url 'about' %}" class="btn btn-primary">
+                    En savoir plus
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Preview -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">
+                <span class="text-gradient">Nos Services</span>
+            </h2>
+            <p class="lead">Un accompagnement complet pour votre réussite en aquaponie</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card bg-white rounded-3 p-4 shadow-sm h-100">
+                    <div class="service-icon bg-gradient-primary mb-3">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h5 class="fw-bold">Installation sur mesure</h5>
+                    <p class="text-muted">Conception et installation de systèmes aquaponiques adaptés à votre espace</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card bg-white rounded-3 p-4 shadow-sm h-100">
+                    <div class="service-icon bg-gradient-success mb-3">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h5 class="fw-bold">Formation complète</h5>
+                    <p class="text-muted">Ateliers pratiques et formation théorique pour maîtriser votre système</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card bg-white rounded-3 p-4 shadow-sm h-100">
+                    <div class="service-icon bg-gradient-info mb-3">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h5 class="fw-bold">Maintenance & SAV</h5>
+                    <p class="text-muted">Service après-vente et maintenance pour garantir la performance</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="{% url 'services' %}" class="btn btn-outline-primary btn-lg">
+                Voir tous nos services
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-gradient-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Prêt à commencer ?</h2>
+        <p class="lead mb-4">
+            Planifiez une consultation gratuite pour évaluer vos besoins en aquaponie
+        </p>
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+            <a href="{% url 'contact' %}" class="btn btn-light btn-lg">
+                Consultation gratuite
+            </a>
+           
+        </div>
+    </div>
+</section>
+{% endblock %}
